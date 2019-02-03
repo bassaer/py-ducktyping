@@ -25,6 +25,18 @@ class Piyo(Base):
         print('piyo msg is "{}"'.format(self.msg))
 
 
+class Foo(object):
+
+    def __init__(self, m):
+        self.msg = m
+
+    def validate(self):
+        return True
+
+    def show(self):
+        print('foo msg is "{}"'.format(self.msg))
+
+
 def check(target):
     if target.validate():
         target.show()
@@ -33,7 +45,7 @@ def check(target):
 
 
 if __name__ == '__main__':
-    targets = [Hoge('hello'), Piyo('world'), Piyo('!!')]
+    targets = [Hoge('hello'), Piyo('world'), Piyo('!!'), Foo('foobar')]
 
     for target in targets:
         check(target)
